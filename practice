@@ -1,0 +1,22 @@
+from locale import currency
+import locale
+
+locale.setlocale(locale.LC_ALL, '')
+
+
+
+
+            
+        
+
+        
+
+
+
+
+
+
+
+
+
+
