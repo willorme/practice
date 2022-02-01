@@ -59,7 +59,7 @@ def menu():
         print ('Invalid input')
 
 
-withdraw()
+menu()
             
         
 
