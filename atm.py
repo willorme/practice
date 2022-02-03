@@ -59,7 +59,7 @@ def menu():
             print ('{}, your current balance is {}'.format(customer.name, currency(int(customer.balance))))
         else:
             print ('Name does not match existing account')
-            break
+            continue
         wd = input('Would you like to withdraw or deposit? ')
         if wd == 'withdraw':
             withdraw()
