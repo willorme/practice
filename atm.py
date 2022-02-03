@@ -1,6 +1,6 @@
 from locale import currency
 import locale
-
+import time
 
 locale.setlocale(locale.LC_ALL, '')
 
@@ -28,6 +28,8 @@ def withdraw():
 
         q = input ('Enter amount to withdraw: ')
         new_balance = customer.balance - int(q)
+        print('Withdrawing cash...')
+        time.sleep(3)
         if int(q) > customer.balance:
             print ('Insufficient funds')
             continue
@@ -41,6 +43,8 @@ def deposit():
     
         q = input ('Enter amount to deposit: ')
         new_balance = customer.balance + int(q)
+        print('Adding funds to your account...')
+        time.sleep(3)
         if int(q) <= 0:
             print('Must deposit amount greater than 0')
             continue
