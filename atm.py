@@ -18,8 +18,7 @@ class Customer:
 
 
 
-customers = [Customer('Amanda Keller', 22, 10000000),
-Customer('Will Orme', 23, 10000000)]
+customers = [Customer('Amanda Keller', 22, 10000000.00),Customer('Will Orme', 23, 10000000.00)]
     
 
 
@@ -27,14 +26,14 @@ def withdraw():
     for customer in customers:
 
         q = input ('Enter amount to withdraw: ')
-        new_balance = customer.balance - int(q)
+        new_balance = customer.balance - float(q)
         print('Withdrawing cash...')
         time.sleep(3)
-        if int(q) > customer.balance:
+        if float(q) > customer.balance:
             print ('Insufficient funds')
             continue
         else: 
-            print('Your balance is now {}'.format(currency(int(new_balance))))
+            print('Your balance is now {}'.format(currency(float(new_balance))))
             break
 
 
@@ -42,14 +41,14 @@ def deposit():
     for customer in customers:
     
         q = input ('Enter amount to deposit: ')
-        new_balance = customer.balance + int(q)
+        new_balance = customer.balance + float(q)
         print('Adding funds to your account...')
         time.sleep(3)
-        if int(q) <= 0:
+        if float(q) <= 0:
             print('Must deposit amount greater than 0')
             continue
         else:
-            print('Your balance is now {}'.format(currency(int(new_balance))))
+            print('Your balance is now {}'.format(currency(float(new_balance))))
             break
 
 
@@ -60,7 +59,7 @@ def menu():
 
         main = input('Enter your name: ')
         if main == customer.name:
-            print ('{}, your current balance is {}'.format(customer.name, currency(int(customer.balance))))
+            print ('{}, your current balance is {}'.format(customer.name, currency(float(customer.balance))))
         else:
             print ('Name does not match existing account')
             continue
