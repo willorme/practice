@@ -1,6 +1,7 @@
 from locale import currency
 import locale
 
+
 locale.setlocale(locale.LC_ALL, '')
 
 class Customer:
@@ -9,54 +10,66 @@ class Customer:
         self.age = age
         self.balance = balance
 
+    def get_balanace(self):
+        return self.balance
+
+    def get_name(self):
+        return self.name
 
 
 
-customers = [Customer('Amanda Keller', 22, 10000000),Customer('Will Orme', 23, 10000000)]
+customers = [Customer('Amanda Keller', 22, 10000000),
+Customer('Will Orme', 23, 10000000)]
+    
+
 
 def withdraw():
     for customer in customers:
-        q1 = input ('Enter your name: ')
-        if q1 == customer.name:
-            print ('{}, your current balance is {}'.format(customer.name, currency(int(customer.balance))))
-        else:
-            print ('Name does not match any account')
-            break
-        q2 = input ('Enter amount to withdraw: ')
-        new_balance = customer.balance - int(q2)
-        if int(q2) > customer.balance:
+
+        q = input ('Enter amount to withdraw: ')
+        new_balance = customer.balance - int(q)
+        if int(q) > customer.balance:
             print ('Insufficient funds')
-            break
+            continue
         else: 
             print('Your balance is now {}'.format(currency(int(new_balance))))
             break
 
+
 def deposit():
     for customer in customers:
-        q1 = input('Enter your name: ')
-        if q1 == customer.name:
-            print ('{}, your current balance is {}'.format(customer.name, currency(int(customer.balance))))
-        else:
-            print ('Name does not match any account')
-            break
-        q2 = input ('Enter amount to deposit: ')
-        new_balance = customer.balance + int(q2)
-        if int(q2) <= 0:
+    
+        q = input ('Enter amount to deposit: ')
+        new_balance = customer.balance + int(q)
+        if int(q) <= 0:
             print('Must deposit amount greater than 0')
+            continue
         else:
             print('Your balance is now {}'.format(currency(int(new_balance))))
             break
 
-            
+
 def menu():
     print('################ Welcome to Orme Bank ##################')
-    main = input('Would you like to Deposit or Withdraw? {}'.format('\n'))
-    if main == 'Withdraw':
-        withdraw()
-    elif main == 'Deposit':
-        deposit()
-    else:
-        print ('Invalid input')
+   
+    for customer in customers:
+
+        main = input('Enter your name: ')
+        if main == customer.name:
+            print ('{}, your current balance is {}'.format(customer.name, currency(int(customer.balance))))
+        else:
+            print ('Name does not match existing account')
+            break
+        wd = input('Would you like to withdraw or deposit? ')
+        if wd == 'withdraw':
+            withdraw()
+            break
+        elif wd == 'deposit':
+            deposit()
+            break
+        else:
+            print ('Invalid input')
+        continue
 
 
 menu()
