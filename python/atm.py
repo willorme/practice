@@ -10,15 +10,10 @@ class Customer:
         self.age = age
         self.balance = balance
 
-    def get_balanace(self):
-        return self.balance
-
-    def get_name(self):
-        return self.name
 
 
-
-customers = [Customer('Amanda Keller', 22, 10000000.00),Customer('Will Orme', 23, 10000000.00)]
+customers = [Customer('Amanda Keller', 22, 10000000.00),Customer('Will Orme', 23, 10000000.00)
+,Customer('Steve Orme', 26, 25.00)]
     
 
 
@@ -75,10 +70,8 @@ def menu():
         continue
 
 
-menu()
-            
-        
 
+menu()
         
 
 
