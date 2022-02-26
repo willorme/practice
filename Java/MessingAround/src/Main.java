@@ -1,14 +1,16 @@
 //author: Will Orme
 
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
-public abstract class Main {
+public class Main {
 
     public static void main(String[] args) {
+
+    int[] array = {5,2,3,1,4,6,7,9,8};
+
+
+
 
 
 
@@ -17,7 +19,12 @@ public abstract class Main {
 
     }
 
+
+
+
 }
+
+
 
 
 
