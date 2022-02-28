@@ -1,3 +1,4 @@
+from calendar import c
 from locale import currency
 import locale
 import time
@@ -9,35 +10,51 @@ class Customer:
         self.name = name
         self.age = age
         self.balance = balance
+    
+    def __repr__(self) -> str:
+        return self.name, self.age, self.balance
 
 customers = [Customer('Jeff Johnson', 22, 10000000.00), 
              Customer('Will Orme', 23, 20000000.00), 
              Customer('Jack Black', 26, 25.00),
              Customer('Amanda Keller', 22, 1000000.00),
              Customer('Steve Orme', 22, 10.00),
-             Customer('Jeff Bezos', 50, 248000000000.00)
-             ]
+             Customer('Jeff Bezos', 50, 248000000000.00),
+             Customer('Kathryn Orme', 19, 50000.00)]
+
+
+def add_customers(customer_list):
+
+    customers.extend(customer_list)
+
+    return customer_list
 
 
 print('################ Welcome to Orme Bank ##################')
-main = input('Enter your name: ')  
 
 def transaction():
-   
+    
+    main = input('Enter your name: ')
+    
     for customer in customers:
-
+        
         
         balance = customer.balance
         name = customer.name
-
+        
+        
         if main != name:
             continue
         else:
             print ('{}, your current balance is {}'.format(name, currency(float(balance))))
 
+            
+
+
+
         while customer.name:
-            wd = input('Would you like to withdraw or deposit? ')
-            if wd == 'withdraw':
+            wd = input('If you would like to withdraw, enter "w". If you would like to deposit, enter "d". ')
+            if wd == 'w':
                 q = input ('Enter amount to withdraw: ')
                 new_balance = balance - float(q)
                 if float(q) > balance:
@@ -48,7 +65,7 @@ def transaction():
                     print('Your balance is now {}'.format(currency(float(new_balance))))
                     break
                 
-            elif wd == 'deposit':
+            elif wd == 'd':
                 q = input ('Enter amount to deposit: ')
                 new_balance = balance + float(q)
                 if float(q) <= 0:
@@ -63,8 +80,9 @@ def transaction():
             else:
                 print ('Invalid input')
                 continue
-        break
+        
 
+add_customers([Customer('James Brown', 67, 5.00), Customer('Dylan Otte', 23, 52000.00)])
 
 
 transaction()
