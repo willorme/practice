@@ -37,19 +37,16 @@ def transaction():
     main = input('Enter your name: ')
     
     for customer in customers:
-        
-        
+
         balance = customer.balance
         name = customer.name
-        
+    
         
         if main != name:
             continue
         else:
             print ('{}, your current balance is {}'.format(name, currency(float(balance))))
-
-            
-
+   
 
 
         while customer.name:
@@ -82,8 +79,7 @@ def transaction():
                 continue
         
 
-add_customers([Customer('James Brown', 67, 5.00), Customer('Dylan Otte', 23, 52000.00)])
-
+add_customers([Customer('James Brown', 67, 5.00), Customer('Tom Brady', 23, 400000000.00), Customer('Kirk Cousins', 32, 84000000.00)])
 
 transaction()
         
